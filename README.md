@@ -79,13 +79,13 @@ We will use running Windows WeChat as an example.
 
 ### Download WeChat
 
-```
+```bash
 $ wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe
 ```
 
 ### Run Docker Container
 
-```
+```bash
 $ xhost +
 $ docker run \
     -it \
@@ -104,7 +104,7 @@ Notice `--rm` has been removed and `-e XMODIFIERS=@im=fcitx`, `-e QT_IM_MODULE=f
 
 ### Configure Wine
 
-```
+```bash
 $ WINEARCH=win64 WINEPREFIX=~/.wine64 winecfg
 ```
 
@@ -112,14 +112,14 @@ Make sure virtual desktop is used in `winecfg`. In my case, I used resolution `2
 
 ### Install WeChat
 
-```
+```bash
 $ cd /mnt
 $ WINEPREFIX=~/.wine64 wine WeChatSetup.exe
 ```
 
 ### Run WeChat
 
-```
-WINEPREFIX=~/.wine64 wine ~/.wine64/drive_c/Program\ Files\ \(x86\)/Tencent/WeChat/WeChat.exe
+```bash
+$ WINEPREFIX=~/.wine64 wine ~/.wine64/drive_c/Program\ Files\ \(x86\)/Tencent/WeChat/WeChat.exe
 ```
 
