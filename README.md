@@ -24,6 +24,7 @@ $ xhost +
 $ docker run \
     -it \
     --rm \
+    --gpus all \
     --device /dev/snd \
     --device=/dev/dri \
     -e DISPLAY=$DISPLAY \
@@ -89,6 +90,7 @@ $ wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe
 $ xhost +
 $ docker run \
     -it \
+    --gpus all \
     --device /dev/snd \
     --device=/dev/dri \
     -e DISPLAY=$DISPLAY \

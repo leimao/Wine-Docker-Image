@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM nvcr.io/nvidia/cuda:11.4.2-runtime-ubuntu20.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
