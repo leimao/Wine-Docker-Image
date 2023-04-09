@@ -14,10 +14,9 @@ RUN apt-get update -y && \
 
 # Install Wine
 RUN dpkg --add-architecture i386 && \
-    wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
-    mv winehq.key /usr/share/keyrings/winehq-archive.key && \
-    wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources && \
-    mv winehq-focal.sources /etc/apt/sources.list.d/ && \
+    mkdir -pm755 /etc/apt/keyrings && \
+    wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
+    wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -sc)/winehq-$(lsb_release -sc).sources && \
     apt-get update -y && \
     # Wine 7.0 stable has some issues with some games I tested
     # Use Wine 7.11 staging instead
